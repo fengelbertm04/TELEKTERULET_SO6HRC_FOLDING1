@@ -3,6 +3,7 @@
     public class AreaOutput
     {
         public Area Area { get; set; }
-        public List<int> GoodArea { get; set; }
+        public Coordinates startIndex { get; set; }
+        public Coordinates endIndex { get; set; }
     }
 }
