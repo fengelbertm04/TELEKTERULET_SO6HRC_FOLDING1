@@ -20,7 +20,7 @@ namespace TelekAPI.Data
             {
                 for (int j = 0; j < Area.PlotArea.GetLength(1); j++)
                 {
-                    if (Area.PlotArea[i, j] - Area.Epsilon > Area.PlotArea[startCoordinate.X, startCoordinate.Y])
+                    if (Area.PlotArea[i][j] - Area.Epsilon > Area.PlotArea[startCoordinate.X][startCoordinate.Y])
                     {
                         startCoordinate.X = i;
                         startCoordinate.Y = j;
