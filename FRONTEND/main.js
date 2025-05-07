@@ -2,6 +2,7 @@ async function GetAreaOutPut()
 {
     const response = await fetch('http://localhost:5156/area')
     areares = await response.json()
+    console.log(areares);
 
 }
 
@@ -23,11 +24,11 @@ async function SendArea()
         .then(resp => {
             console.log('Response: ', resp)
             if (resp.status === 200) {
-                window.location.href = "index.html";
-                
+                GetAreaOutPut();
             }
         })
         .catch(error => console.log(error))
+
 
 }
 

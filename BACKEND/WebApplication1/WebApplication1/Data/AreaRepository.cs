@@ -16,9 +16,9 @@ namespace TelekAPI.Data
         {
             Coordinates startCoordinate = new Coordinates() { X = 0, Y = 0 };
             Coordinates endCoordinate = new Coordinates();
-            for (int i = 0; i < Area.PlotArea.GetLength(0); i++)
+            for (int i = 0; i < Area.PlotArea[0].Length; i++)
             {
-                for (int j = 0; j < Area.PlotArea.GetLength(1); j++)
+                for (int j = 0; j < Area.PlotArea[1].Length; j++)
                 {
                     if (Area.PlotArea[i][j] - Area.Epsilon > Area.PlotArea[startCoordinate.X][startCoordinate.Y])
                     {
