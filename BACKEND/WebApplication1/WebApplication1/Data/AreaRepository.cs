@@ -50,12 +50,11 @@ namespace TelekAPI.Data
         
             if (coordinates.Count < oldCoordinates.Count)
             {
-                startCoordinate = oldCoordinates[0];
-                endCoordinate = oldCoordinates[oldCoordinates.Count - 1];
+                return new AreaOutput() { Area = Area, Coordinates = oldCoordinates};
             }
 
-           
-            return new AreaOutput() { Area = Area, startIndex = startCoordinate, endIndex = endCoordinate };
+            return new AreaOutput() { Area = Area, Coordinates = coordinates };
+
 
         }
     }

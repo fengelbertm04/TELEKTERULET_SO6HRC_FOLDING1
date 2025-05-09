@@ -14,7 +14,13 @@ async function GetAreaOutPut() {
         for (let j = 0; j < areares.area.plotArea[i].length; j++) {
             const td = document.createElement('td');
             td.textContent = areares.area.plotArea[i][j];
-            td.id = `${i};${j}`;
+           
+
+            if (areares.coordinates.some(coord => coord.x === i && coord.y === j)) {
+                td.classList.add("highlight")
+            }
+
+
             tr.appendChild(td);
         }
     
@@ -22,15 +28,7 @@ async function GetAreaOutPut() {
     }
     
 
-    for(let i = areares.startIndex.x; i <= areares.endIndex.x; i++){
-        for(let j = areares.startIndex.y; j <= areares.endIndex.y; j++){
-            const cell = document.getElementById(`${i};${j}`);
-            console.log(cell)
-            if (cell) {
-                cell.classList.add('highlight');
-            }
-        }
-    }
+ 
 
   container.appendChild(table);
 }
