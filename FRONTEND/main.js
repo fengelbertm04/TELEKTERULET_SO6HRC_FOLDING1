@@ -10,21 +10,28 @@ async function GetAreaOutPut() {
 
     for (let i = 0; i < areares.area.plotArea.length; i++) {
         const tr = document.createElement('tr');
-
+    
         for (let j = 0; j < areares.area.plotArea[i].length; j++) {
             const td = document.createElement('td');
-            td.textContent = areares.area.plotArea[i][j]
-        
-            if ( j >= areares.startIndex.x && j <= areares.endIndex.x && i >= areares.startIndex.y && i <= areares.endIndex.y)
-            {
-              
-                td.classList.add('highlight');
-            }
+            td.textContent = areares.area.plotArea[i][j];
+            td.id = `${i};${j}`;
             tr.appendChild(td);
         }
-   
+    
         table.appendChild(tr);
-    }  
+    }
+    
+
+    for(let i = areares.startIndex.x; i <= areares.endIndex.x; i++){
+        for(let j = areares.startIndex.y; j <= areares.endIndex.y; j++){
+            const cell = document.getElementById(`${i};${j}`);
+            console.log(cell)
+            if (cell) {
+                cell.classList.add('highlight');
+            }
+        }
+    }
+
   container.appendChild(table);
 }
 
