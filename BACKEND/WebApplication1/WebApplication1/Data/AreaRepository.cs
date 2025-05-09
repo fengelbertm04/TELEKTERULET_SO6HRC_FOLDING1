@@ -16,36 +16,45 @@ namespace TelekAPI.Data
         {
             Coordinates startCoordinate = new Coordinates() { X = 0, Y = 0 };
             Coordinates endCoordinate = new Coordinates();
-            List<Coordinates> coordinates = new List<Coordinates>() { startCoordinate };
+            List<Coordinates> coordinates = new List<Coordinates>() { new Coordinates() { X = startCoordinate.X, Y = startCoordinate.Y } };
             List<Coordinates> oldCoordinates = new List<Coordinates>();
-            for (int i = 0; i < Area.PlotArea[0].Length; i++)
+
+            for (int i = 0; i < Area.PlotArea.Length; i++)
             {
                 for (int j = 0; j < Area.PlotArea[i].Length; j++)
                 {
-                    if (Math.Abs(Area.PlotArea[i][j] - Area.Epsilon) > Area.PlotArea[startCoordinate.X][startCoordinate.Y])
+               
+                    if (Math.Abs(Area.PlotArea[i][j] - Area.PlotArea[startCoordinate.X][startCoordinate.Y]) > Area.Epsilon)
                     {
-                        if(coordinates.Count > oldCoordinates.Count)
+                      
+                        if (coordinates.Count > oldCoordinates.Count)
                         {
-                            oldCoordinates = coordinates.ToList();
+                            oldCoordinates = coordinates.ToList();  
                         }
-                        coordinates = new List<Coordinates>() { new Coordinates() { X = i, Y = j} };
+
+                      
+                        coordinates = new List<Coordinates>() { new Coordinates() { X = i, Y = j } };
                         startCoordinate.X = i;
                         startCoordinate.Y = j;
                     }
                     else
                     {
-                        coordinates.Add(startCoordinate);
+                      
+                        coordinates.Add(new Coordinates() { X = i, Y = j });
                         endCoordinate.X = i;
                         endCoordinate.Y = j;
                     }
                 }
             }
 
-            if(coordinates.Count < oldCoordinates.Count)
+        
+            if (coordinates.Count < oldCoordinates.Count)
             {
                 startCoordinate = oldCoordinates[0];
                 endCoordinate = oldCoordinates[oldCoordinates.Count - 1];
             }
+
+           
             return new AreaOutput() { Area = Area, startIndex = startCoordinate, endIndex = endCoordinate };
 
         }
