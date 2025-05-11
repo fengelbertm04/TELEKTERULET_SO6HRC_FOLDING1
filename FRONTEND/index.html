@@ -45,16 +45,16 @@
 
     <form id="terrainForm" class="mb-4" onsubmit="event.preventDefault(); SendArea();">
       <div class="mb-3">
-        <label for="area" class="form-label">Magassági mátrix (soronként pontosvesszővel elválasztva)</label>
+        <label for="area" class="form-label">Magassági mátrix (soronként pontosvesszővel elválasztva):</label>
         <textarea class="form-control" id="area" name="area" rows="5" placeholder="pl.&#10;1;2;3&#10;2;2;3&#10;3;3;3"></textarea>
       </div>
 
       <div class="mb-3">
-        <label for="epsilon" class="form-label">Epsilon érték</label>
+        <label for="epsilon" class="form-label">Epsilon érték:</label>
         <input type="number" class="form-control w-25" id="epsilon" name="epsilon" step="any" placeholder="pl. 1">
       </div>
 
-      <button type="submit" class="btn btn-primary">Táblázat kirajzolása</button>
+      <button type="submit" class="btn btn-success">Táblázat kirajzolása</button>
     </form>
 
     <div id="matrix-container"></div>
